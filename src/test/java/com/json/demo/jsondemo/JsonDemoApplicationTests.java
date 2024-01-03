@@ -32,35 +32,21 @@ class JsonDemoApplicationTests
 
 	@Test
 	void test2() throws JsonProcessingException {
-//		String json = "{ \"color\" : \"Black\", \"type\" : \"BMW\" }";
-//		ObjectMapper objectMapper = new ObjectMapper();
-//		JsonNode rootNode = objectMapper.readTree(json);
+		String json = " {  \n" +
+				"    \"id\": 1,  \n" +
+				"    \"itemName\": \"Example Item\" \n" +
+				"  }  ";
+
+		JsonSettings.Item item = jsonSettings.getObjectMapper().readValue(json, JsonSettings.Item.class);
+
+		System.out.println(item);
 //
-//		int count = 1;
-//		for (JsonNode node : rootNode) {
-//			if (node instanceof TextNode textNode){
-//				textNode.
-//			}
-//			ObjectNode objectNode = (ObjectNode) node;
-//			objectNode.fields().forEachRemaining(entry -> {
-//				String key = entry.getKey();
-//				JsonNode value = entry.getValue();
-//				objectNode.put("_" + key, value.asText());
-//			});
-//		}
-//		String output = objectMapper.writeValueAsString(rootNode);
+//		String str = jsonSettings.getObjectMapper().writeValueAsString(car);
+//		System.out.println(str);
+		
 	}
 
-	public static class User {
-		public int id;
-		public String name;
 
 
-	}
-	public static class Item {
-		public int id;
-		public String itemName;
-		public User owner;
-	}
 
 }
